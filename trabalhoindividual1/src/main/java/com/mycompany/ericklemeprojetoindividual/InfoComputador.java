@@ -1,9 +1,14 @@
 package com.mycompany.ericklemeprojetoindividual;
 
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import java.awt.Color;
+
 
 public class InfoComputador extends javax.swing.JFrame {
-
     //Variáveis para salvar os valores máximo, mínimo e médio da CPU
     Integer cpuMaximo = 0;
     Integer cpuMinimo = 100;
@@ -26,6 +31,19 @@ public class InfoComputador extends javax.swing.JFrame {
      * Creates new form InfoComputador
      */
     public InfoComputador() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+                    } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InfoComputador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(InfoComputador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(InfoComputador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(InfoComputador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Color myColor = new Color(80,80,80);
+        getContentPane().setBackground(myColor);
         initComponents();
     }
 
@@ -80,12 +98,24 @@ public class InfoComputador extends javax.swing.JFrame {
         lblBarraMaxDisco = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(java.awt.Color.blue);
 
+        lblAtualCpu.setForeground(new java.awt.Color(0, 156, 173));
         lblAtualCpu.setText("Atual");
 
+        lblAtualDisco.setForeground(new java.awt.Color(227, 198, 9));
         lblAtualDisco.setText("Atual");
 
+        lblAtualMemoria.setForeground(new java.awt.Color(41, 163, 51));
         lblAtualMemoria.setText("Atual");
+
+        pgbCpu.setForeground(new java.awt.Color(0, 156, 173));
+
+        pgbDisco.setForeground(new java.awt.Color(227, 198, 9));
+
+        pgbMemoria.setForeground(new java.awt.Color(41, 163, 51));
 
         btnFazerLeitura.setText("Fazer leitura");
         btnFazerLeitura.addActionListener(new java.awt.event.ActionListener() {
@@ -94,22 +124,31 @@ public class InfoComputador extends javax.swing.JFrame {
             }
         });
 
+        lblMaxCpu.setForeground(new java.awt.Color(0, 156, 173));
         lblMaxCpu.setText("Max");
 
+        lblMaxDisco.setForeground(new java.awt.Color(227, 198, 9));
         lblMaxDisco.setText("Max");
 
+        lblMaxMemoria.setForeground(new java.awt.Color(41, 163, 51));
         lblMaxMemoria.setText("Max");
 
+        lblMinCpu.setForeground(new java.awt.Color(0, 156, 173));
         lblMinCpu.setText("Min");
 
+        lblMinDisco.setForeground(new java.awt.Color(227, 198, 9));
         lblMinDisco.setText("Min");
 
+        lblMinMemoria.setForeground(new java.awt.Color(41, 163, 51));
         lblMinMemoria.setText("Min");
 
+        lblMediaCpu.setForeground(new java.awt.Color(0, 156, 173));
         lblMediaCpu.setText("Média");
 
+        lblMediaDisco.setForeground(new java.awt.Color(227, 198, 9));
         lblMediaDisco.setText("Média");
 
+        lblMediaMemoria.setForeground(new java.awt.Color(41, 163, 51));
         lblMediaMemoria.setText("Média");
 
         jLabel10.setToolTipText("");
@@ -142,10 +181,13 @@ public class InfoComputador extends javax.swing.JFrame {
 
         lblContadorVezes.setText("0");
 
+        jLabel1.setForeground(new java.awt.Color(227, 198, 9));
         jLabel1.setText("Disco");
 
+        jLabel2.setForeground(new java.awt.Color(0, 156, 173));
         jLabel2.setText("CPU");
 
+        jLabel3.setForeground(new java.awt.Color(41, 163, 51));
         jLabel3.setText("Memória");
 
         lblBarraMinCpu.setText("0");
@@ -271,8 +313,8 @@ public class InfoComputador extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblBarraMinCpu)
                                     .addComponent(lblBarraMaxCpu)
+                                    .addComponent(lblBarraMaxMemoria)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lblBarraMaxMemoria)
                                         .addComponent(lblBarraMinMemoria)
                                         .addComponent(lblBarraMaxDisco)))
                                 .addGap(21, 21, 21)
